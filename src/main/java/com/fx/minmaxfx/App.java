@@ -41,8 +41,7 @@ public class App {
       context.write(YearCountry, rate);
     }
     catch (NumberFormatException ex) {
-    	System.out.println(value.toString());
-    	throw ex;
+    	context.write(new Text("ERROR"), new DoubleWritable(0.0d));
     }
     }
   }
