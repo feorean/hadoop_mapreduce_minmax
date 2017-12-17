@@ -26,7 +26,8 @@ public class App {
     
     public void map(Object key, Text value, Context context
                     ) throws IOException, InterruptedException {
-    	      
+    
+    try {	
       //Split columns
       String[] columns = value.toString().split(comma);
       
@@ -38,7 +39,11 @@ public class App {
       
       //Submit value into the Context
       context.write(YearCountry, rate);
-            
+    }
+    catch (NumberFormatException ex) {
+    	System.out.println(value.toString());
+    	throw ex;
+    }
     }
   }
 
