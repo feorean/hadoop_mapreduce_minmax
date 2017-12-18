@@ -30,7 +30,9 @@ public class App {
       //Split columns
       String[] columns = value.toString().split(comma);
       
-      if (columns[2] == null || columns[2].equals("Value")) {
+      if ( columns.length < 3 
+    		  || columns[2] == null 
+    		  	|| columns[2].equals("Value")) {
     	  return;
       }
       //Set FX rate
