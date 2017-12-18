@@ -40,7 +40,7 @@ public class App {
       
       
       //Construct key
-      YearCountry.set(columns[0].substring(0, 4) +"_"+ columns[1]);
+      YearCountry.set(columns[0].substring(0, 4) +" "+ columns[1]);
       
       //Submit value into the Context
       context.write(YearCountry, rate);
@@ -71,8 +71,8 @@ public class App {
       
       //Set key as Year Country Min/Max
       
-      Text minKey = new Text(key.toString()+"_"+"MIN");
-      Text maxKey = new Text(key.toString()+"_"+"MAX");
+      Text minKey = new Text(key.toString()+" "+"MIN");
+      Text maxKey = new Text(key.toString()+" "+"MAX");
       
       context.write(minKey, minW);
       context.write(maxKey, maxW);
