@@ -38,9 +38,6 @@ public class App {
       //Set FX rate
       rate.set(Double.parseDouble(columns[2]));
       
-      if (rate.get() == 0.0d) {
-    	  return;
-      }
       
       //Construct key
       YearCountry.set(columns[0].substring(0, 4) +"_"+ columns[1]);
@@ -62,7 +59,7 @@ public class App {
     public void reduce(Text key, Iterable<DoubleWritable> values,
                        Context context
                        ) throws IOException, InterruptedException {
-      double min = 0;
+      double min = 9999999999999999d;
       double max = 0;
       
       for (DoubleWritable val : values) {
