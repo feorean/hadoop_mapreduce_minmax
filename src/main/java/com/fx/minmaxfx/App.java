@@ -38,8 +38,12 @@ public class App {
       //Set FX rate
       rate.set(Double.parseDouble(columns[2]));
       
+      if (rate.get() == 0.0d) {
+    	  return;
+      }
+      
       //Construct key
-      YearCountry.set(columns[0].substring(0, 3) +"_"+ columns[1]);
+      YearCountry.set(columns[0].substring(0, 4) +"_"+ columns[1]);
       
       //Submit value into the Context
       context.write(YearCountry, rate);
